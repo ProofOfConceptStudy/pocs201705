@@ -1,13 +1,17 @@
 package exception.test;
 
 public class ClassB {
-	public void funcB1() throws Exception {
+	public void funcB1() throws ControllerException {
+//	public void funcB1() throws Exception {
 		ClassC cls = new ClassC();
 		try {
 			cls.funcC1();
-		} catch (Exception e) {
-			throw new Exception("chain", e);
+		} catch (ModelException e) {
+			throw new ControllerException("funcB1 のＤＢ接続で例外", e);
 		}
+//		} catch (Exception e) {
+//			throw e;
+//		}
 		return;
 	}
 }
